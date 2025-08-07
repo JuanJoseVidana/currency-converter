@@ -1,4 +1,4 @@
-package src.main.java.util;
+package service.util;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -43,5 +43,13 @@ public class CountryToCurrencyMap {
         countryCurrencyMap.put("portugal", "EUR");
     }
 
+    public static String getCurrencyCode(String countryName) {
+        if (countryName == null) return null;
+        return countryCurrencyMap.get(countryName.trim().toLowerCase());
+    }
+
+    public static boolean isSupported(String countryName) {
+        return getCurrencyCode(countryName) != null;
+    }
 
 }
